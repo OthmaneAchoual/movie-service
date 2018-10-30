@@ -27,6 +27,8 @@ public class Movie {
     @JsonDeserialize(using=MyDateDeserializer.class)
     private Date releaseDate;
 
+    private int rating;
+
     public Movie() {}
 
     public Movie(String title) {
@@ -55,5 +57,13 @@ public class Movie {
 
     public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public int getRating() {
+        return this.rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }
