@@ -31,4 +31,9 @@ public class MovieController {
     public List<Movie> topRated() {
         return this.repository.findTop3ByOrderByRatingDesc();
     }
+
+    @GetMapping("/latest")
+    public List<Movie> latest() {
+        return this.repository.findTop3ByOrderByReleaseDateDesc();
+    }
 }
