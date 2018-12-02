@@ -26,23 +26,29 @@ public class CarServiceApplication {
 	@Bean
 	CommandLineRunner runner(MovieRepository repository) {
 		return args -> {
-      final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
-      Movie titanic = new Movie("Titanic");
-      Movie matrix = new Movie("Matrix");
-      Movie fightclub = new Movie("Fight Club");
+      repository.findAll()
+        .stream()
+        .map(Movie::getTitle)
+        .forEach(System.out::println);
+        
+      // final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
-      titanic.setReleaseDate(format.parse("1997-11-18"));
-      titanic.setRating(4);
+      // Movie titanic = new Movie("Titanic");
+      // Movie matrix = new Movie("Matrix");
+      // Movie fightclub = new Movie("Fight Club");
 
-      matrix.setReleaseDate(format.parse("1999-03-24"));
-      matrix.setRating(5);
+      // titanic.setReleaseDate(format.parse("1997-11-18"));
+      // titanic.setRating(4);
 
-      fightclub.setReleaseDate(format.parse("1999-09-21"));
-      fightclub.setRating(5);
+      // matrix.setReleaseDate(format.parse("1999-03-24"));
+      // matrix.setRating(5);
 
-      Arrays.asList(titanic, matrix, fightclub)
-      	.forEach(repository::save);
+      // fightclub.setReleaseDate(format.parse("1999-09-21"));
+      // fightclub.setRating(5);
+
+      // Arrays.asList(titanic, matrix, fightclub)
+      // 	.forEach(repository::save);
       
 			// Arrays.asList("Titanic", "Matrix", "Fight Club")
       //   .stream()
