@@ -1,10 +1,5 @@
 package com.example.carservice;
 
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import com.example.carservice.entities.Movie;
 import com.example.carservice.repositories.MovieRepository;
 
