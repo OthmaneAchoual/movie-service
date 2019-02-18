@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class CarServiceApplication {
+public class MovieServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CarServiceApplication.class, args);
+		SpringApplication.run(MovieServiceApplication.class, args);
 	}
 
   // Titanic 1997-11-18
