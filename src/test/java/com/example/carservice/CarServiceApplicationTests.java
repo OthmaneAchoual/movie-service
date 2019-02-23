@@ -2,6 +2,7 @@ package com.example.carservice;
 
 import static org.junit.Assert.assertEquals;
 
+import com.example.carservice.entities.Director;
 import com.example.carservice.entities.Movie;
 
 import org.junit.Test;
@@ -22,6 +23,11 @@ public class CarServiceApplicationTests {
     Movie movie = new Movie("Foo");
 
     assertEquals("Movie title not set correctly through constructor", "Foo", movie.getTitle());
+  }
+
+  @Test
+  public void directorTest() {
+    Director director = new Director();
   }
 
 }

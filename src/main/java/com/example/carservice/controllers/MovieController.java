@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.carservice.entities.Movie;
 import com.example.carservice.repositories.MovieRepository;
+import com.example.carservice.services.MovieService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,22 +19,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class MovieController {
 
     @Autowired
-    private MovieRepository repository;
+    private MovieService service;
 
     @GetMapping("")
     public Page<Movie> all(@RequestParam("p") int page) {
-        System.out.println(page);
-        return this.repository.findAll(PageRequest.of(page, 2));
+        return this.service.all(page);
         // return this.repository.findAll();
     }
 
     @GetMapping("/top")
     public List<Movie> topRated() {
-        return this.repository.findTop3ByOrderByRatingDesc();
+        return this.service.topRated();
     }
 
     @GetMapping("/latest")
     public List<Movie> latest() {
-        return this.repository.findTop3ByOrderByReleaseDateDesc();
+        return this.service.latest();
     }
 }
