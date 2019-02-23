@@ -1,10 +1,5 @@
 package com.example.carservice;
 
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import com.example.carservice.entities.Movie;
 import com.example.carservice.repositories.MovieRepository;
 
@@ -14,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class CarServiceApplication {
+public class MovieServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CarServiceApplication.class, args);
+		SpringApplication.run(MovieServiceApplication.class, args);
 	}
 
   // Titanic 1997-11-18

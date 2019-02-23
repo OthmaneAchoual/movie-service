@@ -1,18 +1,27 @@
 package com.example.carservice;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.*;
+// import static org.hamcrest.core.Is.*;
 
 import com.example.carservice.entities.Director;
 import com.example.carservice.entities.Movie;
+import com.example.carservice.repositories.MovieRepository;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class CarServiceApplicationTests {
+
+  @Autowired
+  private MovieRepository repository;
 
 	@Test
 	public void contextLoads() {
@@ -21,8 +30,9 @@ public class CarServiceApplicationTests {
   @Test
   public void movieTest() {
     Movie movie = new Movie("Foo");
-
-    assertEquals("Movie title not set correctly through constructor", "Foo", movie.getTitle());
+    this.repository.save(movie);
+    
+    assertThat(movie.getTitle(), is("Foo"));
   }
 
   @Test
