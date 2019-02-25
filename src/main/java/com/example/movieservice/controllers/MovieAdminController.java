@@ -1,7 +1,7 @@
-package com.example.carservice.controllers;
+package com.example.movieservice.controllers;
 
-import com.example.carservice.entities.Movie;
-import com.example.carservice.repositories.MovieRepository;
+import com.example.movieservice.entities.Movie;
+import com.example.movieservice.repositories.MovieRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

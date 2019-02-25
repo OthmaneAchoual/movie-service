@@ -1,4 +1,4 @@
-package com.example.carservice.entities;
+package com.example.movieservice.entities;
 
 import java.util.Date;
 
@@ -11,8 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.example.carservice.json.MyDateDeserializer;
-import com.example.carservice.json.MyDateSerializer;
+import com.example.movieservice.json.MyDateDeserializer;
+import com.example.movieservice.json.MyDateSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 

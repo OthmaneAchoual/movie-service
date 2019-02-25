@@ -1,4 +1,4 @@
-package com.example.carservice.json;
+package com.example.movieservice.json;
 
 import java.io.IOException;
 import java.text.ParseException;

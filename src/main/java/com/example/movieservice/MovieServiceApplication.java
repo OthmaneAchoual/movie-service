@@ -1,7 +1,7 @@
-package com.example.carservice;
+package com.example.movieservice;
 
-import com.example.carservice.entities.Movie;
-import com.example.carservice.repositories.MovieRepository;
+import com.example.movieservice.entities.Movie;
+import com.example.movieservice.repositories.MovieRepository;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

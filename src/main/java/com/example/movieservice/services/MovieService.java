@@ -1,9 +1,9 @@
-package com.example.carservice.services;
+package com.example.movieservice.services;
 
 import java.util.List;
 
-import com.example.carservice.entities.Movie;
-import com.example.carservice.repositories.MovieRepository;
+import com.example.movieservice.entities.Movie;
+import com.example.movieservice.repositories.MovieRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

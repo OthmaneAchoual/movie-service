@@ -1,8 +1,8 @@
-package com.example.carservice.repositories;
+package com.example.movieservice.repositories;
 
 import java.util.List;
 
-import com.example.carservice.entities.Movie;
+import com.example.movieservice.entities.Movie;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

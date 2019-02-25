@@ -1,9 +1,9 @@
-package com.example.carservice.controllers;
+package com.example.movieservice.controllers;
 
 import java.io.IOException;
 import java.util.List;
 
-import com.example.carservice.services.DummyService;
+import com.example.movieservice.services.DummyService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
