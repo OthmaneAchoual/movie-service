@@ -24,7 +24,8 @@ public class MovieServiceApplication {
 
       repository.findAll()
         .stream()
-        .map(Movie::getTitle)
+        .filter(movie -> movie.getDirector() != null)
+        .map(movie -> movie.getTitle() + " " + movie.getDirector().getFirstname() + ", " + movie.getDirector().getLastname())
         .forEach(System.out::println);
         
       // final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
