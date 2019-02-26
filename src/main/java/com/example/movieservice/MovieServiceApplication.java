@@ -1,16 +1,26 @@
 package com.example.movieservice;
 
-import com.example.movieservice.entities.Movie;
 import com.example.movieservice.repositories.MovieRepository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 
 @SpringBootApplication
+@PropertySource("classpath:custom.properties")
 public class MovieServiceApplication {
 
+  @Autowired
+  private Environment env;
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(MovieServiceApplication.class);
+  
 	public static void main(String[] args) {
 		SpringApplication.run(MovieServiceApplication.class, args);
 	}
@@ -21,6 +31,8 @@ public class MovieServiceApplication {
 	@Bean
 	CommandLineRunner runner(MovieRepository repository) {
 		return args -> {
+
+      LOGGER.info(env.getProperty("greeting.msg"));
 
       repository.findAll()
         .stream()
