@@ -1,9 +1,12 @@
 package com.example.movieservice.controllers;
 
+import java.net.URI;
+
 import com.example.movieservice.entities.Movie;
 import com.example.movieservice.repositories.MovieRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,12 +22,13 @@ public class MovieAdminController {
     private MovieRepository repository;
 
     @PostMapping("")
-    public Movie add(@RequestBody Movie movie) {
-        return this.repository.save(movie);
+    public ResponseEntity<Movie> add(@RequestBody Movie movie) {
+        return ResponseEntity.created(null).body(this.repository.save(movie));
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Long id) {
+    public ResponseEntity delete(@PathVariable("id") Long id) {
         this.repository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }

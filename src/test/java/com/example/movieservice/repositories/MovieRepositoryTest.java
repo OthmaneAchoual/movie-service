@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -23,7 +21,7 @@ public class MovieRepositoryTest {
 
     @Test
     public void moviesByDirectorQueryWorks() {
-        List<Movie> fincherMovies = repository.findMoviesForDirector("Fincher");
+        var fincherMovies = repository.findMoviesForDirector(2L);
         assertThat(fincherMovies.size(), is(2));
     }
 }

@@ -36,7 +36,7 @@ public class MovieServiceApplicationTests {
 
   @Test
   public void directorTest() {
-    Director director = new Director();
+    var director = new Director();
   }
 
 }

@@ -20,6 +20,10 @@ public class MovieService {
     this.repository = repository;
   }
 
+  public Movie find(long id) {
+    return this.repository.findById(id).orElse(null);
+  }
+
   public Page<Movie> all(int page) {
     return this.repository.findAll(PageRequest.of(page, 2));
   }
