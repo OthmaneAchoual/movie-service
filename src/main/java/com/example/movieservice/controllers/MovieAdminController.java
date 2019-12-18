@@ -1,6 +1,6 @@
 package com.example.movieservice.controllers;
 
-import java.net.URI;
+import javax.validation.Valid;
 
 import com.example.movieservice.entities.Movie;
 import com.example.movieservice.repositories.MovieRepository;
@@ -22,7 +22,7 @@ public class MovieAdminController {
     private MovieRepository repository;
 
     @PostMapping("")
-    public ResponseEntity<Movie> add(@RequestBody Movie movie) {
+    public ResponseEntity<Movie> add(@Valid @RequestBody Movie movie) {
         return ResponseEntity.created(null).body(this.repository.save(movie));
     }
 

@@ -1,5 +1,6 @@
 package com.example.movieservice.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,13 +14,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.example.movieservice.json.MyDateDeserializer;
 import com.example.movieservice.json.MyDateSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
+@Getter @Setter @ToString
 @Table(name="MOVIE")
 public class Movie {
 
@@ -29,70 +37,25 @@ public class Movie {
     private Long id;
 
     @Column(name="TITLE")
+    @NotBlank
     private String title;
 
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="DIRECTOR_ID")
     private Director director;
 
-    @Temporal(TemporalType.DATE)
     @JsonSerialize(using=MyDateSerializer.class)
     @JsonDeserialize(using=MyDateDeserializer.class)
     @Column(name="RELEASE_DATE")
-    private Date releaseDate;
+    private LocalDate releaseDate;
 
     @Column(name="RATING")
+    @NotNull
     private int rating;
 
     public Movie() {}
 
     public Movie(String title) {
         this.title = title;
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Date getReleaseDate() {
-        return this.releaseDate;
-    }
-
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public int getRating() {
-        return this.rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    /**
-     * @return the director
-     */
-    public Director getDirector() {
-        return director;
-    }
-
-    /**
-     * @param director the director to set
-     */
-    public void setDirector(Director director) {
-        this.director = director;
     }
 }

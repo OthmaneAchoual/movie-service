@@ -1,20 +1,20 @@
 package com.example.movieservice.json;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
-public class MyDateSerializer extends JsonSerializer<Date> {
+public class MyDateSerializer extends JsonSerializer<LocalDate> {
 
-    private static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     
     @Override
-    public void serialize (Date date, JsonGenerator generator, SerializerProvider provider)
+    public void serialize (LocalDate date, JsonGenerator generator, SerializerProvider provider)
         throws IOException {
-        generator.writeString(format.format(date));
+        generator.writeString(date.format(formatter));
     }
 } 

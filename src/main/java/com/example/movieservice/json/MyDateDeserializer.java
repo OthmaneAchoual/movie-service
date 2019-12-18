@@ -1,31 +1,23 @@
 package com.example.movieservice.json;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 
-public class MyDateDeserializer extends JsonDeserializer<Date> {
+public class MyDateDeserializer extends JsonDeserializer<LocalDate> {
 
-  private static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+  private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 	@Override
-    public Date deserialize(JsonParser p, DeserializationContext ctxt)
-        throws IOException, JsonProcessingException {
+    public LocalDate deserialize(JsonParser p, DeserializationContext ctxt)
+        throws DateTimeException, IOException {
 
         String textualDate = p.getValueAsString();
-        Date date = null;
-
-        try {
-            date = format.parse(textualDate);
-        } catch (ParseException e) {
-            
-        }
+        LocalDate date = LocalDate.parse(textualDate, formatter);
         return date;
 	}
 
