@@ -30,7 +30,7 @@ public class MovieAdminControllerTest {
     @Test
     public void passingGoodParam() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/api/admin/movie/")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"title\":\"foo\"}"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().is2xxSuccessful());

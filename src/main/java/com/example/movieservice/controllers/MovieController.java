@@ -27,8 +27,12 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Movie> get(@PathVariable("id") long id) {
-        return ResponseEntity.ok().body(this.service.find(id));
+    public ResponseEntity<Movie> get(@PathVariable long id) {
+        Movie movie = this.service.find(id);
+        if (movie == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(movie);
     }
 
     @GetMapping("/top")

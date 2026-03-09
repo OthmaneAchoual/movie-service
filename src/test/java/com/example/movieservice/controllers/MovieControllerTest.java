@@ -41,9 +41,9 @@ public class MovieControllerTest {
     }
 
     @Test
-    public void testDummy() throws Exception {
-        Mockito.when(service.latest()).thenReturn(List.of(new Movie("Black Hawk Down")));
-        this.mockMvc.perform(get("/api/movie/foo"))
+    public void testGetNotFound() throws Exception {
+        Mockito.when(service.find(999L)).thenReturn(null);
+        this.mockMvc.perform(get("/api/movie/999"))
                 .andExpect(status().isNotFound());
     }
 }
